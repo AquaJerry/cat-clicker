@@ -30,6 +30,8 @@ Annotated source code.
 
 There should be two menus on a blank.
 
+<details>
+
 - List of cat names
 - Admin Area
 
@@ -40,7 +42,7 @@ Admin Area is somewhere you can rename a cat, change its cover photo, or even ch
 Here's the interaciton spec.
 
 Before | Click | After
--|
+-|-|-
 blank | menu | menu
 menu | blank | blank
 menu | menu | blank
@@ -61,3 +63,5 @@ menu 1 | menu 2 | blank
 ```
 
 But there seems someting wrong in the actual code.
+
+</details>
