@@ -30,9 +30,6 @@ Annotated source code.
 
 There should be two menus on a blank.
 
-<details>
-<summary>More</summary>
-
 - List of cat names
 - Admin Area
 
@@ -64,5 +61,3 @@ menu 1 | menu 2 | blank
 ```
 
 But there seems someting wrong in the actual code.
-
-</detials>
