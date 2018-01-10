@@ -3,6 +3,8 @@
 
 // ## Helpers
 
+/* global ko */
+
 // Open a menu.
 let open = it => it._open(true);
 // Close all menus.
@@ -17,16 +19,16 @@ let cancel = it => it.menus.map(m => m._open(false));
 // - `menu.text` Final visible label.
 let menus = [ { _open: ko.observable(), name: 'List of Cat Names' },
     { _open: ko.observable(), name: 'Admin Area' } ];
-let isOrdering = ko.computed(_ => menus.some(m => m._open()));
+let isOrdering = ko.computed(() => menus.some(m => m._open()));
 
 menus.forEach(m => {
-    m.open = ko.computed(_ => !isOrdering() && open);
-    m.text = ko.computed(_ => m.name + (m._open() ? ' (Open)' : ''));
+    m.open = ko.computed(() => !isOrdering() && open);
+    m.text = ko.computed(() => m.name + (m._open() ? ' (Open)' : ''));
 });
 
 // Make the view know how to update itself.
 // - `cancel` If no menu open, do nothing.
 ko.applyBindings({
     menus,
-    cancel: ko.computed(_ => isOrdering() && cancel)
+    cancel: ko.computed(() => isOrdering() && cancel)
 });
