@@ -21,8 +21,9 @@ npm start
 ```
 
 ## Dependencies
+
 Name | Role
--|
+-|-
 Babel | JS Compiler
 Docco | Doc generator
 Eslint | JS Linter
