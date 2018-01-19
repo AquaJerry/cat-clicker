@@ -1,14 +1,30 @@
 {
-  "name": "webpack-demo",
+  "name": "cat-clicker",
   "version": "0.0.1",
-  "description": "Automatic toolchain tests.",
+  "description": "How to test something in webpack.",
   "scripts": {
     "build": "webpack",
-    "test": "mocha --require babel-register"
+    "debug": "npm run lint && npm run mocha",
+    "doc": "docco *.js test/*.js src/*.js src/*/*.js",
+    "go": "npm run build && npm run doc && npm run run",
+    "lint": "eslint --fix *.js {src,test}/**/*.js",
+    "mocha": "mocha --require babel-register",
+    "run": "node server.js",
+    "start": "npm install --production && npm run go",
+    "test": "npm run debug && npm run go"
   },
   "devDependencies": {
     "babel-register": "^6.26.0",
+    "clean-webpack-plugin": "^0.1.17",
+    "docco": "^0.8.0",
+    "eslint": "^4.15.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "html-webpack-plugin": "^2.30.1",
     "knockout": "^3.4.2",
-    "mocha": "^4.1.0"
+    "mocha": "^4.1.0",
+    "uglify-js-plugin": "0.0.6",
+    "webpack": "^3.10.0"
   }
 }
