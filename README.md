@@ -10,13 +10,13 @@ Web app for browsering lovely cats.
 - License
 
 ## Goal
-If you want to work more efficently, some tools are good choices to save your time and energy.
+If you want to work more efficiently, some tools are good choices to save your time and energy.
 
 ## Usage
 You should have [node.js](https://nodejs.org) installed before.
 ```bash
-git clone https://github.com/aquajerry/webpack-demo.git
-cd webpack-demo
+git clone https://github.com/aquajerry/cat-clicker.git
+cd cat-clicker
 npm start
 ```
 
