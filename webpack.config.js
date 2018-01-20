@@ -32,7 +32,9 @@ module.exports = {
     new Cleaner(path.resolve(distpath, '*')),
     new Uglifyer,
     new Html({
-      template: './src/app.html',
+      description: 'Browsering lovely cats.',
+      template: 'src/app.html',
+      title: 'Cat Clicker KnockoutJS',
       minify: {
         collapseWhitespace: true,
         removeAttributeQuotes: true,
