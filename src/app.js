@@ -2,7 +2,7 @@
 // Cat Clicker Booter is freely distributed under the terms of ISC license.
 
 // - `vm`: View Model
-import {wake} from 'components/vm';
+import vm from './components/vm';
 
 // Update view.
-wake();
+vm.wake();

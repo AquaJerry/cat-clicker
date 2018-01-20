@@ -19,6 +19,15 @@ module.exports = {
     filename: 'bundle.min.js',
     path: distpath,
   },
+  module: {
+    rules: [
+      {
+        test: /.jsx?$/,
+        exclude: /node_modules/,
+        use: 'babel-loader',
+      },
+    ],
+  },
   plugins: [
     new Cleaner(path.resolve(distpath, '*')),
     new Uglifyer,
