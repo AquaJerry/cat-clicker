@@ -33,6 +33,7 @@ module.exports = {
     new Uglifyer,
     new Html({
       description: 'Browsering lovely cats.',
+      favicon: 'src/favicon.ico',
       template: 'src/app.html',
       title: 'Cat Clicker KnockoutJS',
       minify: {
