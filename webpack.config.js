@@ -33,6 +33,12 @@ module.exports = {
     new Uglifyer,
     new Html({
       template: './src/app.html',
+      minify: {
+        collapseWhitespace: true,
+        removeAttributeQuotes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+      },
     }),
   ],
 };
