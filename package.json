@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack",
     "debug": "npm run lint && npm run mocha",
-    "doc": "docco *.js test/*.js src/*.js src/*/*.js",
+    "doc": "docco *.js src/*.js test/*.js",
     "go": "npm run build && npm run doc && npm run run",
     "lint": "eslint --fix *.js {src,test}/**/*.js",
     "mocha": "mocha --require babel-register",

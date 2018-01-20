@@ -1,8 +1,13 @@
 // (c) 2018 LiuZeyang, Guangzhou University.
 // Cat Clicker Booter is freely distributed under the terms of ISC license.
 
-// - `vm`: View Model
-import vm from './components/vm';
+import Menubar from './menubar';
 
 // Update view.
-vm.wake();
+new Menubar([
+  'List of Cat Names',
+  'Admin Area',
+]);
+new Menubar([
+  'Happy Dog Year',
+]);
