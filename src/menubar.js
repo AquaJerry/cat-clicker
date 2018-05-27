@@ -1,60 +1,58 @@
-// (c) 2017 LiuZeyang, Guangzhou University.
-// Cat Clicker core is freely distributed under the terms of ISC license.
+// (c) 2017 AquaJerry, Guangzhou University.
+// Cat Clicker is freely distributed under the terms of ISC license.
 
-// - `ko` UI library
-// - `open` a menu.
-// - `cancel` to close all menus.
+// - ko, UI library
+// - vm, view model
 import ko from 'knockout';
 import vm from './vm';
 
-// Menubar View & Bindings
+// Register "Menubar" on knockout
 ko.components.register('menubar', {
-  template: '<ul data-bind="click: cancel(), foreach: menus">'+
-    '<li data-bind="click: open(), text: text"></li>'+
-  '</ul>',
-  viewModel: function(menubar) {
-    this.cancel = menubar.cancel;
-    this.menus = menubar.menus;
+  template: '<ul data-bind="click: cancel(), foreach: menus">' +
+    '<li data-bind="click: open(), text: text"></li></ul>',
+  viewModel({ cancel, menus }) {
+    this.menus = menus;
+    this.cancel = cancel;
   },
 });
 
-// - `menu._open` True if the menu open.
-// - `menu.name` Something that can be displayed on the menu.
-// - `isOrdering` True if at least one menu open.
-// - `menu.open` If no menu open, open the clicked one.
-// - `menu.text` Final visible label.
-class Menubar {
-  constructor(names) {
-    this.menus = names.map((name) => ({
-      name,
-      _open: ko.observable(),
-    }));
+// Helpers for newing a menubar
+// - cancel, closes all menus
+// - open, opens a menu
+const cancel = (menubar) => {
+  menubar.menus.forEach((menu) => {
+    menu.state('close');
+  });
+};
+const open = (menu) => {
+  menu.state('open');
+};
 
-    // Compute after event bubbles end.
-    const isOrdering = ko.computed(() => this.menus.some((m) => m._open()))
-      .extend({rateLimit: 0});
+// New a menubar
+// - cancel, either closes all menus or does nothing if no menu open
+// - isOrdering, true if at least one menu open, computed as event bubbles out
+// - name, string that can be displayed on the menu
+// - open, opens the clicked one if no menu open
+// - state, either 'close' or 'open'
+// - text, final visible label
+// - vm.push, make the view know how to update itself
+export default (names) => {
+  const menus = names.map(name => ({
+    name,
+    state: ko.observable('close'),
+  }));
+  const isOrdering = ko.computed(() => menus.some(menu => menu.state() === 'open')).extend({ rateLimit: 0 });
 
-    this.menus.forEach((m) => {
-      m.open = ko.computed(() => !isOrdering() && Menubar.open);
-      m.text = ko.computed(() => m.name + (m._open() ? ' (Open)' : ''));
+  menus.forEach((menu) => {
+    Object.assign(menu, {
+      open: ko.computed(() => !isOrdering() && open),
+      text: ko.computed(() => `${menu.name} (${menu.state()})`),
     });
+  });
 
-    // Make the view know how to update itself.
-    // - `cancel` If no menu open, do nothing.
-    vm.push({
-      name: 'menubar',
-      params: {
-        cancel: ko.computed(() => isOrdering() && Menubar.cancel),
-        menus: this.menus,
-      },
-    });
-  }
-  static cancel(menubar) {
-    menubar.menus.forEach((m) => m._open(false));
-  }
-  static open(menu) {
-    menu._open(true);
-  }
-}
-
-export default Menubar;
+  vm.push({
+    name: 'menubar',
+    menus,
+    cancel: ko.computed(() => isOrdering() && cancel),
+  });
+};

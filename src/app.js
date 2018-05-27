@@ -1,13 +1,13 @@
-// (c) 2018 LiuZeyang, Guangzhou University.
-// Cat Clicker Booter is freely distributed under the terms of ISC license.
+// (c) 2018 AquaJerry, Guangzhou University.
+// Cat Clicker is freely distributed under the terms of ISC license.
 
-import Menubar from './menubar';
+import menubar from './menubar';
 
 // Update view.
-new Menubar([
+menubar([
   'List of Cat Names',
   'Admin Area',
 ]);
-new Menubar([
+menubar([
   'Happy Dog Year',
 ]);
