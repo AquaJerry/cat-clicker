@@ -9,18 +9,18 @@ import ko from 'knockout';
 // - be opened or closed
 // - be asked what state it is
 class Menu {
-    // Constructor.
-    // - params:
-    //  - {object} [cfg = {}] - what a menu is at first
-    //  - {bool} [cfg.open = false] - open?
-    constructor({open = false} = {}) {
-        this._open = ko.observable(open);
-    }
-    // Get current state.
-    // - return {string} 'open'|'close'
-    get state() {
-        return this._open() ? 'open' : 'close';
-    }
+  // Constructor.
+  // - params:
+  //  - {object} [cfg = {}] - what a menu is at first
+  //  - {bool} [cfg.open = false] - open?
+  constructor({ open = false } = {}) {
+    this.iopen = ko.observable(open);
+  }
+  // Get current state.
+  // - return {string} 'open'|'close'
+  get state() {
+    return this.iopen() ? 'open' : 'close';
+  }
 }
 
 export default Menu;

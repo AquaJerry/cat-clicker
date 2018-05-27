@@ -4,6 +4,4 @@ parserOptions:
 env:
     mocha: true
     node: true
-extends: google
-rules:
-    require-jsdoc: off # Use Docco instead
+extends: airbnb-base
