@@ -1,4 +1,5 @@
 # Cat Clicker
+![build](https://travis-ci.org/AquaJerry/cat-clicker.svg?branch=master)
 Web app for browsering lovely cats.
 
 ## Table of Contents
