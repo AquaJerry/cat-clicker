@@ -10,7 +10,7 @@ import vm from './vm';
 ko.components.register('menubar', {
   template: '<ul data-bind="click: cancel(), foreach: menus">' +
     '<li data-bind="click: open(), text: text"></li></ul>',
-  viewModel({ cancel, menus }) {
+  viewModel({cancel, menus}) {
     this.menus = menus;
     this.cancel = cancel;
   },
@@ -37,11 +37,12 @@ const open = (menu) => {
 // - text, final visible label
 // - vm.push, make the view know how to update itself
 export default (names) => {
-  const menus = names.map(name => ({
+  const menus = names.map((name) => ({
     name,
     state: ko.observable('close'),
   }));
-  const isOrdering = ko.computed(() => menus.some(menu => menu.state() === 'open')).extend({ rateLimit: 0 });
+  const isOrdering = ko.computed(() => menus.some((menu) =>
+    menu.state() === 'open')).extend({rateLimit: 0});
 
   menus.forEach((menu) => {
     Object.assign(menu, {
