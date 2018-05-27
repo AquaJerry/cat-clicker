@@ -3,25 +3,27 @@ Web app for browsering lovely cats.
 
 ## Table of Contents
 
-- [Goal](#goal)
+- [Intro](#intro)
 - [Usage](#usage)
 - [Dependencies](#dependencies)
 - [License](#license)
 
-## Goal
+## Intro
 Most people love cats.
 
-Since there're often many ways to build an cat app, what do you think is the best one?
+Since there're often many ways to build a cat app, what do you think is the best one?
 
 If you want to do this more efficiently, some tools are good choices to save your time and energy.
 
 ## Usage
-You should have [node.js](https://nodejs.org) installed before.
+You should have [Npmjs](https://npmjs.com) installed before.
 ```bash
 git clone https://github.com/aquajerry/cat-clicker.git
 cd cat-clicker
 npm start
 ```
+And then in your favorite browser, visit http://localhost:8080.
+> You can press `Ctrl` + `C` in terminal to quit at any time.
 
 ## Dependencies
 
