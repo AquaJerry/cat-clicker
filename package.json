@@ -1,13 +1,13 @@
 {
   "name": "cat-clicker",
   "version": "0.0.1",
-  "description": "How to test something in webpack.",
+  "description": "Browsering lovely cats",
   "scripts": {
     "build": "webpack",
     "debug": "npm run lint && npm run mocha",
     "doc": "docco *.js src/*.js test/*.js",
     "go": "npm run build && npm run doc && npm run run",
-    "lint": "eslint --fix *.js {src,test}/**/*.js",
+    "lint": "eslint --fix *.js src/*.js test/*.js",
     "mocha": "mocha --require babel-register",
     "run": "node server.js",
     "start": "npm install --production && npm run go",
@@ -15,10 +15,11 @@
   },
   "devDependencies": {
     "babel-register": "^6.26.0",
-    "eslint": "^4.15.0",
+    "eslint": "^4.16.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
-    "eslint-plugin-node": "^5.2.1",
-    "eslint-plugin-promise": "^3.6.0",
+    "expect.js": "^0.3.1",
     "mocha": "^4.1.0"
   },
   "dependencies": {
